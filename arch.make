@@ -74,7 +74,7 @@ LIBS += -lscalapack
 # Make sure you have the appropriate symbols
 # (Either explicitly here, or through shell variables, perhaps
 #  set by a module system)
-ROOT_GLOBAL=/opt/PSML/
+ROOT_GLOBAL=/opt/lib/Gfortran
 PSML_ROOT=$(ROOT_GLOBAL)
 XMLF90_ROOT=$(ROOT_GLOBAL)
 GRIDXC_ROOT=$(ROOT_GLOBAL)/mpi
