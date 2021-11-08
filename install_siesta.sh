@@ -8,19 +8,19 @@ sudo apt-get update
 ########################
 
 echo "Instalar pacotes de compiladores - visualizadores e bibliotecas"
-sudo apt install build-essential g++ gfortran libreadline-dev m4 xsltproc -y
-sudo apt install openmpi-common openmpi-bin libopenmpi-dev -y
-sudo apt-get install vim -y
-sudo apt-get install build-essential checkinstall -y
-sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev -y
-sudo apt-get install libblacs-mpi-dev -y
-sudo apt-get install liblapack-dev -y
-sudo apt-get install liblapack3 -y
-sudo apt-get install libopenblas-base -y
-sudo apt-get install libopenblas-dev -y
-sudo apt-get install liblapack-dev libopenblas-dev -y
-sudo apt-get install science-physics science-physics-dev science-chemistry science-config science-nanoscale-physics science-nanoscale-physics-dev -y
-sudo apt-get install netcdf-bin python3-netcdf4 gfortran -y
+apt install build-essential g++ gfortran libreadline-dev m4 xsltproc -y
+apt install openmpi-common openmpi-bin libopenmpi-dev -y
+apt-get install vim -y
+apt-get install build-essential checkinstall -y
+apt-get install openmpi-bin openmpi-doc libopenmpi-dev -y
+apt-get install libblacs-mpi-dev -y
+apt-get install liblapack-dev -y
+apt-get install liblapack3 -y
+apt-get install libopenblas-base -y
+apt-get install libopenblas-dev -y
+apt-get install liblapack-dev libopenblas-dev -y
+apt-get install science-physics science-physics-dev science-chemistry science-config science-nanoscale-physics science-nanoscale-physics-dev -y
+apt-get install netcdf-bin python3-netcdf4 gfortran -y
 
 # Create required installation folders
 echo "Criando pastas em OPT"
@@ -32,9 +32,9 @@ PSML_DIR=/opt/lib/Gfortran
 NETCDF_DIR=/opt/Docs
 
 # Create folders to OpenBlas, ScalaPack and Siesta.
-sudo mkdir $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR $PSML_DIR $NETCDF_DIR
+mkdir $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR $PSML_DIR $NETCDF_DIR
 
-sudo chmod -R 777 $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR $PSML_DIR $NETCDF_DIR 
+chmod -R 777 $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR $PSML_DIR $NETCDF_DIR 
 
 # Install single-threaded openblas library from source
 
@@ -85,7 +85,7 @@ echo "INSTALL NETCDF"
 
 cd $SIESTA_DIR
 
-sudo chmod +x .
+chmod +x .
 
 wget https://github.com/dennerfelipe/install_siesta/archive/refs/heads/main.zip && cd install_siesta-main && cp * $SIESTA_DIR && cd ../
 
@@ -169,7 +169,7 @@ make
 #########################
 # Copiando para um local mais adequado
 
-sudo cp $SIESTA_DIR/siesta-psml-R1/Obj/siesta /usr/local/bin
+cp $SIESTA_DIR/siesta-psml-R1/Obj/siesta /usr/local/bin
 cd 
 
 siesta
