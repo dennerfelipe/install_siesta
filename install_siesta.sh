@@ -116,7 +116,7 @@ make
 make install
 
 # 2 - Configurando XMLF90
-cd $PSML_DIR
+cd ../../
 
 tar -xvf xmlf90-1.5.4.tar.gz
 cd xmlf90-1.5.4
@@ -127,7 +127,7 @@ make
 make install
 
 # 3 - Configurando LIBPSML
-cd $PSML_DIR
+cd ../../
 tar -xvf libpsml-1.1.7.tar.gz
 cd libpsml-1.1.7
 mkdir Gfortran
@@ -138,7 +138,7 @@ make install
 
 
 # 4 - Configurando LIBGRIDXC
-cd $PSML_DIR
+cd ../../
 tar -xvf libgridxc-0.8.0.tgz
 cd libgridxc-0.8.0
 mkdir Gfortran
