@@ -3,7 +3,6 @@
 #Atualizar o sistema
 
 echo "Updating System"
-sudo su
 apt-get update
 
 ########################
