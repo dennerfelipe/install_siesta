@@ -163,7 +163,7 @@ cd siesta-psml-R1
 #Baixar a versão desejada
 
 cd Obj/
-sh ../Src/obj_setup.sh && cd ../Src && ./configure && cp /$SIESTA_DIR/arch.make ../Obj
+sh ../Src/obj_setup.sh && cp /$SIESTA_DIR/arch.make .
 cd ../Obj
 make
 
