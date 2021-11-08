@@ -47,11 +47,11 @@ MPI_INCLUDE = .
 FPPFLAGS += -DMPI
 
 # flook
-INCFLAGS += -I$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/include
-LDFLAGS += -L$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/lib -Wl,-rpath=$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/lib
-LIBS += -lflookall -ldl
-COMP_LIBS += libfdict.a
-FPPFLAGS += -DSIESTA__FLOOK
+# INCFLAGS += -I$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/include
+# LDFLAGS += -L$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/lib -Wl,-rpath=$(INSDIR)/siesta/siesta-4.1-b4/Docs/build/flook/0.7.0/lib
+# LIBS += -lflookall -ldl
+# COMP_LIBS += libfdict.a
+# FPPFLAGS += -DSIESTA__FLOOK
 
 # netcdf
 INCFLAGS += -I$(INSDIR)/Docs/build/netcdf/4.7.4/include
