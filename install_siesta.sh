@@ -110,7 +110,7 @@ tar -xvf libxc-3.0.1.tar.gz
 cd libxc-3.0.1
 mkdir Gfortran
 cd Gfortran
-../configure --prefix=$LIBPSML_DIR --enable-fortran
+../configure --prefix=/opt/lib/Gfortran --enable-fortran
 make 
 make install
 
@@ -121,7 +121,7 @@ tar -xvf xmlf90-1.5.4.tar.gz
 cd xmlf90-1.5.4
 mkdir Gfortran
 cd Gfortran
-../configure --prefix=$LIBPSML_DIR
+../configure --prefix=/opt/lib/Gfortran
 make
 make install
 
@@ -131,7 +131,7 @@ tar -xvf libpsml-1.1.7.tar.gz
 cd libpsml-1.1.7
 mkdir Gfortran
 cd Gfortran
-../configure --prefix=$LIBPSML_DIR --with-xmlf90=$LIBPSML_DIR
+../configure --prefix=/opt/lib/Gfortran --with-xmlf90=/opt/lib/Gfortran
 make 
 make install
 
@@ -146,7 +146,7 @@ cp ../extra/fortran.mk .
 sed -i '5s|.*|LIBXC_ROOT=/opt/lib/Gfortran/|' fortran.mk
 sh ../src/config.sh
 make clean 
-WITH_LIBXC=1 WITH_MPI=1 PREFIX=$LIBPSML_DIR sh build.sh
+WITH_LIBXC=1 WITH_MPI=1 PREFIX=/opt/lib/Gfortran sh build.sh
 
 ############
 # SIESTA INSTALL 
