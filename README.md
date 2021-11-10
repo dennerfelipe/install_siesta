@@ -37,7 +37,8 @@ Execute the main file:
 ```
 ## Just to know
 
-→ look out further information about bash language: 
+→ look out further information about bash language:
+→ look out further information about git: 
 
 ## References 
 
