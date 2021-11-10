@@ -16,6 +16,17 @@ cd install_siesta
 Make the files executable:
 
 ```
-chmod u+x 
+chmod u+x install_flook.bash install_netcdf4.bash install_siesta.sh  
 ```
 
+Login as sudo:
+
+```
+sudo su
+```
+
+Execute the main file:
+
+```
+.\install_siesta.sh  
+```
