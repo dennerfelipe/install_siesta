@@ -35,3 +35,9 @@ Execute the main file:
 ```
 .\install_siesta.sh  
 ```
+## Just to know
+
+→ look out further information about bash language: 
+
+## References 
+
