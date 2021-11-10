@@ -39,7 +39,7 @@ Execute the main file:
 
 → look out further information about bash language:
 
-→ look out further information about git: 
+→ look out further information about git: <https://git-scm.com/doc>
 
 ## References 
 
