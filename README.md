@@ -12,3 +12,10 @@ And then, you have to go to the directory:
 ```
 cd install_siesta
 ```
+
+Make the files executable:
+
+```
+chmod u+x 
+```
+
