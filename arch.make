@@ -63,12 +63,15 @@ COMP_LIBS += libncdf.a libfdict.a
 FPPFLAGS += -DCDF -DNCDF -DNCDF_4
 
 # openblas
-LDFLAGS += -L$(INSDIR)/openblas/lib -Wl,-rpath=$(INSDIR)/openblas/lib
-LIBS += -lopenblas_nonthreaded
+#LDFLAGS += -L$(INSDIR)/openblas/lib -Wl,-rpath=$(INSDIR)/openblas/lib
+#LIBS += -lopenblas_nonthreaded
 
 # ScaLAPACK (required only for MPI build)
-LDFLAGS += -L$(INSDIR)/scalapack/lib -Wl,-rpath=$(INSDIR)/scalapack/lib
-LIBS += -lscalapack
+#LDFLAGS += -L$(INSDIR)/scalapack/lib -Wl,-rpath=$(INSDIR)/scalapack/lib
+#LIBS += -lscalapack
+LAPACK_LIBS = -L/usr/lib/x86_64-linux-gnu -lblas -llapack
+LIBS=$(LAPACK_LIBS)
+
 
 #
 # Make sure you have the appropriate symbols
