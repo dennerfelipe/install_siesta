@@ -153,7 +153,7 @@ WITH_LIBXC=1 WITH_MPI=1 PREFIX=/opt/lib/Gfortran sh build.sh
 ###########
 
 cd $SIESTA_DIR
-
+wget https://github.com/dennerfelipe/install_siesta/raw/main/siesta-psml-R1.tgz
 tar xvf *.tgz
 cd siesta-psml-R1
 
