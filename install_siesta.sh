@@ -25,9 +25,10 @@ apt-get install netcdf-bin python3-netcdf4 gfortran -y
 # Create required installation folders
 echo "Criando pastas em OPT"
 
+ID_DIR=$(pwd)/
 SIESTA_DIR=/opt/siesta
-OPENBLAS_DIR=/opt/openblas
-SCALAPACK_DIR=/opt/scalapack
+#OPENBLAS_DIR=/opt/openblas
+#SCALAPACK_DIR=/opt/scalapack
 PSML_DIR=/opt/lib/Gfortran 
 NETCDF_DIR=/opt/Docs
 
@@ -83,15 +84,12 @@ chmod -R 777 $SIESTA_DIR $PSML_DIR $NETCDF_DIR #$OPENBLAS_DIR $SCALAPACK_DIR
 ###############################
 echo "INSTALL NETCDF"
 
-cd $SIESTA_DIR
-
-chmod +x .
-
-wget https://github.com/dennerfelipe/install_siesta/archive/refs/heads/main.zip && cd install_siesta-main && cp * $SIESTA_DIR && cd ../
+cp $ID_DIR/install_netcdf4.bash .
 
 cp install_netcdf4.bash $NETCDF_DIR && cd $NETCDF_DIR && bash *.bash
 
-echo "INSTALL LIBXC"
+echo " INSTALL LIBXC "
+
 # INSTALANDO PSML
 
 # 1 - Configurando LIBXC
@@ -153,7 +151,7 @@ WITH_LIBXC=1 WITH_MPI=1 PREFIX=/opt/lib/Gfortran sh build.sh
 ###########
 
 cd $SIESTA_DIR
-wget https://github.com/dennerfelipe/install_siesta/raw/main/siesta-psml-R1.tgz
+cp $ID_DIR/siesta-psml-R1.tgz . && cp $ID_DIR/arch.make .
 tar xvf *.tgz
 cd siesta-psml-R1
 
