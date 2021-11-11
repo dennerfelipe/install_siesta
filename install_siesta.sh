@@ -27,8 +27,8 @@ echo "Criando pastas em OPT"
 
 ID_DIR=$(pwd)/
 SIESTA_DIR=/opt/siesta
-#OPENBLAS_DIR=/opt/openblas
-#SCALAPACK_DIR=/opt/scalapack
+OPENBLAS_DIR=/opt/openblas
+SCALAPACK_DIR=/opt/scalapack
 PSML_DIR=/opt/lib/Gfortran 
 NETCDF_DIR=/opt/Docs
 
@@ -39,45 +39,44 @@ chmod -R 777 $SIESTA_DIR $PSML_DIR $NETCDF_DIR #$OPENBLAS_DIR $SCALAPACK_DIR
 
 # Install single-threaded openblas library from source
 
-#echo "INSTALL OPENBLAS"
-#cd $OPENBLAS_DIR
+echo "INSTALL OPENBLAS"
+cd $OPENBLAS_DIR
 
-# wget -O OpenBLAS.tar.gz https://ufpr.dl.sourceforge.net/project/openblas/v0.3.7/OpenBLAS%200.3.7%20version.tar.gz
+wget -O OpenBLAS.tar.gz https://ufpr.dl.sourceforge.net/project/openblas/v0.3.7/OpenBLAS%200.3.7%20version.tar.gz
 
-# tar xzf OpenBLAS.tar.gz && rm OpenBLAS.tar.gz
+tar xzf OpenBLAS.tar.gz && rm OpenBLAS.tar.gz
 
-# cd "$(find . -type d -name xianyi-OpenBLAS*)"
+cd "$(find . -type d -name xianyi-OpenBLAS*)"
 
-# make DYNAMIC_ARCH=0 CC=gcc FC=gfortran HOSTCC=gcc BINARY=64 INTERFACE=64 \
-#   NO_AFFINITY=1 NO_WARMUP=1 USE_OPENMP=0 USE_THREAD=0 USE_LOCKING=1 LIBNAMESUFFIX=nonthreaded
+make DYNAMIC_ARCH=0 CC=gcc FC=gfortran HOSTCC=gcc BINARY=64 INTERFACE=64 \
+  NO_AFFINITY=1 NO_WARMUP=1 USE_OPENMP=0 USE_THREAD=0 USE_LOCKING=1 LIBNAMESUFFIX=nonthreaded
 
-# make PREFIX=$OPENBLAS_DIR LIBNAMESUFFIX=nonthreaded install
+make PREFIX=$OPENBLAS_DIR LIBNAMESUFFIX=nonthreaded install
 
-# cd $OPENBLAS_DIR && rm -rf "$(find $OPENBLAS_DIR -maxdepth 1 -type d -name xianyi-OpenBLAS*)"
+cd $OPENBLAS_DIR && rm -rf "$(find $OPENBLAS_DIR -maxdepth 1 -type d -name xianyi-OpenBLAS*)"
 
 ################################
 # Install ScalaPack from source
 ################################
-# echo "INSTALL SCALAPACK"
+echo "INSTALL SCALAPACK"
 
-# mpiincdir="/usr/include/mpich"
+mpiincdir="/usr/include/mpich"
+if [ ! -d "$mpiincdir" ]; then mpiincdir="/usr/lib/x86_64-linux-gnu/openmpi/include" ; fi
 
-# if [ ! -d "$mpiincdir" ]; then mpiincdir="/usr/lib/x86_64-linux-gnu/openmpi/include" ; fi
+cd $SCALAPACK_DIR
 
-# cd $SCALAPACK_DIR
+wget http://www.netlib.org/scalapack/scalapack_installer.tgz -O ./scalapack_installer.tgz
 
-# wget http://www.netlib.org/scalapack/scalapack_installer.tgz -O ./scalapack_installer.tgz
+tar xf ./scalapack_installer.tgz
 
-# tar xf ./scalapack_installer.tgz
+mkdir -p $SCALAPACK_DIR/scalapack_installer/build/download/
 
-# mkdir -p $SCALAPACK_DIR/scalapack_installer/build/download/
+wget https://github.com/Reference-ScaLAPACK/scalapack/archive/v2.1.0.tar.gz -O $SCALAPACK_DIR/scalapack_installer/build/download/scalapack.tgz
 
-# wget https://github.com/Reference-ScaLAPACK/scalapack/archive/v2.1.0.tar.gz -O $SCALAPACK_DIR/scalapack_installer/build/download/scalapack.tgz
+cd ./scalapack_installer
 
-# cd ./scalapack_installer
-
-# echo "b" | ./setup.py --prefix $SCALAPACK_DIR --blaslib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a \
-#   --lapacklib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --mpibindir=/usr/bin --mpiincdir=$mpiincdir 
+ echo "b" | ./setup.py --prefix $SCALAPACK_DIR --blaslib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a \
+   --lapacklib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --mpibindir=/usr/bin --mpiincdir=$mpiincdir 
 
 ###############################
 # NETCDF INSTALL
