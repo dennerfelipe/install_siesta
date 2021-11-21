@@ -33,7 +33,7 @@ sudo su
 Execute the main file:
 
 ```
-.\install_siesta.sh  
+./install_siesta.sh  
 ```
 ## Just to know
 
